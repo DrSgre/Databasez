@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils import timezone
-import django_tables2 as tables
 
 class Campione(models.Model):
     data = models.CharField(max_length = 10, verbose_name="Data e Ora")

@@ -14,16 +14,14 @@ class ListaCampioni(admin.ModelAdmin):
     list_display = ('data', 'nome', 'valore','valore2', 'valore3', 'BAR')
     search_fields = ['data', 'nome', 'valore', 'valore2', 'valore3', 'BAR']
 
-    k = 0
-
 def insert(dataz, nomez, valorez, valorez2, valorez3, k):
-    k = ListaCampioni.k
-    if (Campione.objects.filter(codice = k).count() == 0):
-        v = Campione(data = dataz, nome = nomez, valore = valorez, valore2 = valorez2, valore3 = valorez3, BAR = "#" + str(k), codice = k)
-        v.save()
-        ListaCampioni.k = ListaCampioni.k + 1
-    else:
-        ""
+    k = Campione.objects.count()
+    v = Campione(data = dataz, nome = nomez, valore = valorez, valore2 = valorez2, valore3 = valorez3, BAR = "#" + str(k), codice = k)
+    v.save()
+    y = Campione.objects.filter(data = dataz, nome = nomez, valore = valorez, valore2 = valorez2, valore3 = valorez3).count()
+    if (y > 1):
+        Campione.objects.filter(codice = k).delete()
+
 
 in_file = open("Deposito/Dati.txt", "r")
 

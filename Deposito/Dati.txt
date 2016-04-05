@@ -1,21 +1,14 @@
 
-prova
-sensore 3
-10
-11
-12
+g
+g
+g
+g
+g
 0
 
-prova
-sensore 4
-9
-8
-7
-0
-
-prova
-sensore 5
-15
-14
-13
+a
+a
+a
+a
+a
 0
